@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Robot CTF Challenge</title>
+<style>
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+  }
+
+  body {
+    background-color: #111;
+    color: #ddd;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    animation: blink 1s steps(5, start) infinite;
+  }
+
+  .description {
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 10s steps(200, end), blink-caret .75s step-end infinite;
+  }
+
+  .download-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .download-btn:hover {
+    background-color: #555;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="blink">ROT13 Cipher Challenge</h1>
+  <p class="description">The ROT13 cipher is a simple letter substitution algorithm that replaces a letter with the 13th letter after it in the alphabet. It's a special case of the Caesar cipher and is used as a simple means of obfuscating text.</p>
+  <!-- Download Button -->
+  <a href="path_to_your_zip_file.zip" class="download-btn" download="challenge.zip">Download Challenge</a>
+</div>
+<script>
+  // JavaScript to handle the typing effect
+  const typedTextSpan = document.querySelector(".description");
+  const textArray = typedTextSpan.innerText;
+  const typingDelay = 200;
+  let textArrayIndex = 0;
+  let charIndex = 0;
+
+  function type() {
+    if (charIndex < textArray.length) {
+      typedTextSpan.textContent += textArray[charIndex];
+      charIndex++;
+      setTimeout(type, typingDelay);
+    }
+  }
+
+  window.onload = function() {
+    setTimeout(type, 2000);
+  }
+</script>
+</body>
+</html>
