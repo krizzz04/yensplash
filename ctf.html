@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mr. Robot CTF Challenge</title>
+<title>Mr. Robot CTF-Challenge</title>
 <style>
   @keyframes blink {
     0%, 100% { opacity: 1; }
@@ -70,16 +70,15 @@
 <body>
 <div class="container">
   <h1 class="blink">ROT13 Cipher Challenge</h1>
-  <p class="description">The ROT13 cipher is a simple letter substitution algorithm that replaces a letter with the 13th letter after it in the alphabet. It's a special case of the Caesar cipher and is used as a simple means of obfuscating text.</p>
+  <p class="description" id="description">The ROT13 cipher is a simple letter substitution algorithm that replaces a letter with the 13th letter after it in the alphabet. It's a special case of the Caesar cipher and is used as a simple means of obfuscating text.</p>
   <!-- Download Button -->
   <a href="path_to_your_zip_file.zip" class="download-btn" download="challenge.zip">Download Challenge</a>
 </div>
 <script>
   // JavaScript to handle the typing effect
-  const typedTextSpan = document.querySelector(".description");
-  const textArray = typedTextSpan.innerText;
-  const typingDelay = 200;
-  let textArrayIndex = 0;
+  const typedTextSpan = document.querySelector("#description");
+  const textArray = "The ROT13 cipher is a simple letter substitution algorithm that replaces a letter with the 13th letter after it in the alphabet. It's a special case of the Caesar cipher and is used as a simple means of obfuscating text.";
+  const typingDelay = 75;
   let charIndex = 0;
 
   function type() {
@@ -90,9 +89,9 @@
     }
   }
 
-  window.onload = function() {
-    setTimeout(type, 2000);
-  }
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(type, 1800);
+  });
 </script>
 </body>
 </html>
